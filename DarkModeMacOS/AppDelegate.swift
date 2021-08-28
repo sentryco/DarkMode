@@ -8,6 +8,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     */
    lazy var view: NSView = createView()
    func applicationDidFinishLaunching(_ aNotification: Notification) {
+      Swift.print("Apperance:  \(Apperance())")
+      Swift.print("Apperance().inDarkMode:  \(Apperance().inDarkMode)")
       _ = view
    }
 }

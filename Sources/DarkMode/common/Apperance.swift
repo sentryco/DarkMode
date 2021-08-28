@@ -12,9 +12,12 @@ public enum Apperance: String {
    case dark, light
 }
 extension Apperance {
+   /**
+    * - Note: We lowercase the typeStr because it seems this key was uppercased in macos 11, in 10.5 it was lowercase
+    */
    public init() {
-      let type = UserDefaults.standard.string(forKey: "AppleInterfaceStyle") ?? Apperance.light.rawValue
-      self = Apperance(rawValue: type) ?? Apperance.light
+      let typeStr: String = UserDefaults.standard.string(forKey: "AppleInterfaceStyle") ?? Apperance.light.rawValue
+      self = Apperance(rawValue: typeStr.lowercased()) ?? Apperance.light
    }
    /**
     * Easily check if OS is in darkMode
